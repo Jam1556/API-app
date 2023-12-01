@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 function App() {
   const [data, setData] = useState({})
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState('')  // Current location will show and he weather as well
   const key = process.env.API_KEY
   const url = async () => {
     const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Manchester&appid=0b038fc24ee3faefb17b8079969e0a06`)
     const data = await response.json()
     setData(data)
   }
+  
 //   function weather() {
 //   const searchLocation = (event) => {
 //     if (event.key === 'Enter') {
@@ -28,7 +29,7 @@ useEffect(() =>{
       <div className="search">
         <input
           value={location}
-          onChange={event => setLocation(event.target.value)}
+          onChange={event => setLocation(event.target.value)}  // Should search and get the weather of for a location
           // onKeyPress={searchLocation}
           placeholder='Enter Location'
           type="text" />
